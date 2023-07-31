@@ -31,7 +31,8 @@ string [] ChooseEx(string [] arr1, string [] arr2, string [] arr3)
     Console.Write($"3 -> [“Russia”, “Denmark”, “Kazan”]");
     Console.Write($"4 -> ваш пример.");
     Console.WriteLine();
-    Console.Write($"и введите его номер:");
+    Console.Write($"и введите его номер -> ");
+    Console.WriteLine();
 
     string [] arrCh = {};
     int choice = Convert.ToInt32(Console.ReadLine());
@@ -52,6 +53,29 @@ string [] ChooseEx(string [] arr1, string [] arr2, string [] arr3)
 }
 
 // здесь метод для заполнения значениями от пользователя
+string [] UserEx()
+{
+    Console.Write("сколько будет элементов в вашем массиве -> ");
+    int arrSize = Convert.ToInt32(Console.ReadLine());
+    while (arrSize <= 0)
+    {
+        Console.Write("длина должна быть положительной -> ");
+        arrSize = Convert.ToInt32(Console.ReadLine());
+    }
+
+    string [] userArray = new string[arrSize];
+    for (int i = 0; i < arrSize; i++)
+    {
+        Console.Write($"ведите элемент массива №{i+1} -> ");
+        userArray[i] = Console.ReadLine()!;
+        while (userArray[i] == "")
+        {
+            Console.WriteLine("элемент не может быть пустым. заново -> ");
+            userArray[i] = Console.ReadLine()!;
+        }
+    }
+    return userArray;
+}
 
 // здесь метод вывода массива на экран
 
