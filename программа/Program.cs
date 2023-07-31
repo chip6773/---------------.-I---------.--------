@@ -21,8 +21,7 @@
 
 // СОБСТНА, РЕШЕНИЕ:
 
-// здесь метод выбора массива для проверки
-string [] ChooseEx(string [] arr1, string [] arr2, string [] arr3)
+string [] ChooseEx(string [] arr1, string [] arr2, string [] arr3) // метод выбора массива для проверки
 {
     
     Console.WriteLine("выберете массив для проверки:");
@@ -52,8 +51,7 @@ string [] ChooseEx(string [] arr1, string [] arr2, string [] arr3)
     return arrCh;
 }
 
-// здесь метод для заполнения значениями от пользователя
-string [] UserEx()
+string [] UserEx() // метод для заполнения значениями от пользователя
 {
     Console.Write("сколько будет элементов в вашем массиве -> ");
     int arrSize = Convert.ToInt32(Console.ReadLine());
@@ -77,16 +75,36 @@ string [] UserEx()
     return userArray;
 }
 
-// здесь метод вывода массива на экран
-void PrintUserEx(string [] arr)
+void PrintArr(string [] arr) // метод вывода массива на экран
 {
     int count = arr.Length;
     for (int pos = 0; pos < count; pos++) Console.Write(arr[pos] + ", ");
     Console.WriteLine("\b\b.");
 }
 
-// здесь метод для решения основной задачи
 
+string [] ResultArr(string [] checkArr) // метод для решения основной задачи
+{
+    
+    int count = 0;
+    for (int i = 0; i < checkArr.Length; i++)
+    {
+        if (checkArr[i].Length <= 3)
+                count ++;
+    }
+ 
+    string [] resArr = new string [count];
+    int j = 0;
+    for (int i = 0; i < checkArr.Length; i++)
+    {
+        if (checkArr[i].Length <= 3)
+        {
+            resArr[j] = checkArr[i];
+            j++;
+        }
+    }
+    return resArr; 
+}
 
 Console.Clear();
 
@@ -94,11 +112,14 @@ string [] arrayToChoose1 = {"Hello", "2", "world", ":-)"};
 string [] arrayToChoose2 = {"1234", "1567", "-2", "computer science"};
 string [] arrayToChoose3 = {"Russia", "Denmark", "Kazan"};
 string [] arrayUs = ChooseEx(arrayToChoose1, arrayToChoose2, arrayToChoose3);
-Console.Write("Ваш массив -> ");
-PrintUserEx(arrayUs);
 
 Console.WriteLine();
-Console.Write("массив на основе выбранного, но с элементами из 3ёх символов и менее:");
-// здесь будет ссылка на метод
+Console.Write("Ваш массив -> ");
+PrintArr(arrayUs);
+
+string [] arrRes = ResultArr(arrayUs);
+Console.WriteLine();
+Console.Write("РЕЗУЛЬТАТ -> ");
+PrintArr(arrRes);
 
 // сначала программа, потом блок-схема. мне так быстрее.
