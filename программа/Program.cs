@@ -25,22 +25,22 @@
 string [] ChooseEx(string [] arr1, string [] arr2, string [] arr3)
 {
     
-    Console.Write("выберете массив для проверки:");
-    Console.Write("1 -> [“Hello”, “2”, “world”, “:-)”]");
-    Console.Write($"2 -> [“1234”, “1567”, “-2”, “computer science”]");
-    Console.Write($"3 -> [“Russia”, “Denmark”, “Kazan”]");
-    Console.Write($"4 -> ваш пример.");
+    Console.WriteLine("выберете массив для проверки:");
+    Console.WriteLine("1 -> [“Hello”, “2”, “world”, “:-)”]");
+    Console.WriteLine($"2 -> [“1234”, “1567”, “-2”, “computer science”]");
+    Console.WriteLine($"3 -> [“Russia”, “Denmark”, “Kazan”]");
+    Console.WriteLine($"4 -> ваш пример.");
     Console.WriteLine();
     Console.Write($"и введите его номер -> ");
-    Console.WriteLine();
 
     string [] arrCh = {};
     int choice = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine();
 
     if (choice == 1) arrCh = arr1;
     else if (choice == 2) arrCh = arr2;
     else if (choice == 3) arrCh = arr3;
-    else if (choice == 4) arrCh = // здесь д/б ссылка на метод для заполнения значениями от пользователя ();
+    else if (choice == 4) arrCh = UserEx();
     else
     {
         while (choice > 4 || choice <= 0) // цикл проверки ввода от 1 до 4
@@ -78,6 +78,12 @@ string [] UserEx()
 }
 
 // здесь метод вывода массива на экран
+void PrintUserEx(string [] arr)
+{
+    int count = arr.Length;
+    for (int pos = 0; pos < count; pos++) Console.Write(arr[pos] + ", ");
+    Console.WriteLine("\b\b.");
+}
 
 // здесь метод для решения основной задачи
 
@@ -87,9 +93,11 @@ Console.Clear();
 string [] arrayToChoose1 = {"Hello", "2", "world", ":-)"};
 string [] arrayToChoose2 = {"1234", "1567", "-2", "computer science"};
 string [] arrayToChoose3 = {"Russia", "Denmark", "Kazan"};
+string [] arrayUs = ChooseEx(arrayToChoose1, arrayToChoose2, arrayToChoose3);
+Console.Write("Ваш массив -> ");
+PrintUserEx(arrayUs);
 
-
-
+Console.WriteLine();
 Console.Write("массив на основе выбранного, но с элементами из 3ёх символов и менее:");
 // здесь будет ссылка на метод
 
