@@ -22,6 +22,34 @@
 // СОБСТНА, РЕШЕНИЕ:
 
 // здесь метод выбора массива для проверки
+string [] ChooseEx(string [] arr1, string [] arr2, string [] arr3)
+{
+    
+    Console.Write("выберете массив для проверки:");
+    Console.Write("1 -> [“Hello”, “2”, “world”, “:-)”]");
+    Console.Write($"2 -> [“1234”, “1567”, “-2”, “computer science”]");
+    Console.Write($"3 -> [“Russia”, “Denmark”, “Kazan”]");
+    Console.Write($"4 -> ваш пример.");
+    Console.WriteLine();
+    Console.Write($"и введите его номер:");
+
+    string [] arrCh = {};
+    int choice = Convert.ToInt32(Console.ReadLine());
+
+    if (choice == 1) arrCh = arr1;
+    else if (choice == 2) arrCh = arr2;
+    else if (choice == 3) arrCh = arr3;
+    else if (choice == 4) arrCh = // здесь д/б ссылка на метод для заполнения значениями от пользователя ();
+    else
+    {
+        while (choice > 4 || choice <= 0) // цикл проверки ввода от 1 до 4
+            {
+                Console.WriteLine($"у вас всего 4 варианта. хнык.");
+                choice = Convert.ToInt32(Console.ReadLine());
+            }
+    }
+    return arrCh;
+}
 
 // здесь метод для заполнения значениями от пользователя
 
